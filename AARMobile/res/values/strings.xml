@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AAR Mobile</string>
+    <string name="button_play">Start</string>
+    <string name="dummy_content">Augmented\nAudio\nReality</string>
+
+</resources>
