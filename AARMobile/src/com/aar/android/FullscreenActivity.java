@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.puredata.android.io.AudioParameters;
 import org.puredata.android.service.PdPreferences;
 import org.puredata.android.service.PdService;
 import org.puredata.core.PdBase;
@@ -70,6 +71,7 @@ public class FullscreenActivity extends Activity implements OnClickListener {
 	private SystemUiHider mSystemUiHider;
 
 	private static final String TAG = "AAR";
+	private static final int MIN_SAMPLE_RATE = 44100;
 
 	private Button play;
 
@@ -114,8 +116,8 @@ public class FullscreenActivity extends Activity implements OnClickListener {
 		File patchFile = null;
 		try {
 			PdBase.subscribe("android");
-			InputStream in = res.openRawResource(R.raw.test);
-			patchFile = IoUtils.extractResource(in, "test.pd", getCacheDir());
+			InputStream in = res.openRawResource(R.raw.patch);
+			patchFile = IoUtils.extractResource(in, "patch.pd", getCacheDir());
 			PdBase.openPatch(patchFile);
 		} catch (IOException e) {
 			Log.e(TAG, e.toString());
@@ -157,7 +159,8 @@ public class FullscreenActivity extends Activity implements OnClickListener {
 				break;
 			} else {
 				startAudio();
-				PdBase.sendFloat("mic", 0);
+				PdBase.sendFloat("left", 0);
+				PdBase.sendFloat("right", 0);
 				break;
 			}
 		default:
@@ -240,6 +243,7 @@ public class FullscreenActivity extends Activity implements OnClickListener {
 		PdPreferences.initPreferences(getApplicationContext());
 		initGui();
 		bindService(new Intent(this, PdService.class), pdConnection, BIND_AUTO_CREATE);
+		new PDSensorManager(getApplicationContext());
 	}
 
 	@Override
