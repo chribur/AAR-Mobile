@@ -116,8 +116,14 @@ public class FullscreenActivity extends Activity implements OnClickListener {
 		File patchFile = null;
 		try {
 			PdBase.subscribe("android");
-			InputStream in = res.openRawResource(R.raw.patch);
-			patchFile = IoUtils.extractResource(in, "patch.pd", getCacheDir());
+			
+			File dir = getFilesDir();
+			patchFile = new File(dir, "breathe.pd");
+			IoUtils.extractZipResource(getResources().openRawResource(R.raw.patch), dir, true);
+			PdBase.openPatch(patchFile.getAbsolutePath());
+			
+			//InputStream in = res.openRawResource(R.raw.patch);
+			//patchFile = IoUtils.extractResource(in, "patch.pd", getCacheDir());
 			PdBase.openPatch(patchFile);
 		} catch (IOException e) {
 			Log.e(TAG, e.toString());
