@@ -118,7 +118,7 @@ public class FullscreenActivity extends Activity implements OnClickListener {
 			PdBase.subscribe("android");
 			
 			File dir = getFilesDir();
-			patchFile = new File(dir, "breathe.pd");
+			patchFile = new File(dir, "test.pd");
 			IoUtils.extractZipResource(getResources().openRawResource(R.raw.patch), dir, true);
 			PdBase.openPatch(patchFile.getAbsolutePath());
 			
@@ -249,7 +249,7 @@ public class FullscreenActivity extends Activity implements OnClickListener {
 		PdPreferences.initPreferences(getApplicationContext());
 		initGui();
 		bindService(new Intent(this, PdService.class), pdConnection, BIND_AUTO_CREATE);
-		new PDSensorManager(getApplicationContext());
+		new PDSensorManager(this, getApplicationContext());
 	}
 
 	@Override
