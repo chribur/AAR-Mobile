@@ -1,0 +1,41 @@
+#N canvas 0 0 632 726 10;
+#X obj 160 11 adc~;
+#X obj 157 102 freeverb~;
+#X obj 158 347 dac~;
+#X msg 242 64 wet \$1;
+#X obj 245 7 hsl 36 24 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1900 1;
+#X obj 321 11 hsl 36 24 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 800 1;
+#X msg 318 62 dry \$1;
+#X obj 388 8 hsl 36 24 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 2900 1;
+#X msg 385 63 roomsize \$1;
+#X obj 234 147 delwrite~ delayleft 4000;
+#X obj 268 125 delwrite~ delayright 4000;
+#X obj 213 282 vd~ delayleft;
+#X obj 260 260 vd~ delayright;
+#X obj 260 228 sig~;
+#X floatatom 258 202 5 0 0 0 - - -;
+#X obj 219 232 sig~;
+#X floatatom 217 206 5 0 0 0 - - -;
+#X text 468 19 hier kann Hall/Reverb erzeugt werden;
+#X text 377 234 das ist das Delay/Echo;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 1 0 2 0;
+#X connect 1 0 9 0;
+#X connect 1 1 2 1;
+#X connect 1 1 10 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 11 0 2 0;
+#X connect 12 0 2 1;
+#X connect 13 0 12 0;
+#X connect 14 0 13 0;
+#X connect 15 0 11 0;
+#X connect 16 0 15 0;
