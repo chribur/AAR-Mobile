@@ -1,4 +1,4 @@
-#N canvas 1049 198 560 426 10;
+#N canvas 694 125 560 426 10;
 #X obj 78 116 dac~;
 #X obj 11 174 s android;
 #X obj 11 151 r test;
