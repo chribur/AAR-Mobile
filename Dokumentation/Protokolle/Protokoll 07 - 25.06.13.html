@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../layout.css">
+</head>
+<body>
+<h1>Protokoll 18.&thinsp;06.&thinsp;13</h1>
+<span class="">Anwesenheit: alle</span>
+
+<h2>Vor Treffen erledigt</h2>
+<ul>
+    <li>Eva: Schrittzähler ist einsetzbar (hurra :D)</li>
+    <li>Chris: Klangfarben von Melodie verändert (Hüllkurve, Obertöne)</li>
+    <li>Elli: iPad gewonnen, was man eventuell bei sehr großen Ambitionen noch benutzen könnte</li>
+</ul>
+
+<h2>Beim Treffen erarbeitet</h2>
+
+<ul>
+    <li>Repository kopiert und auf einen von unseren Accounts (von Chris) gelegt</li>
+    <li>Grenzwerte festgelegt für die einzelnen Kontextparameter</li>
+    <ul>
+        <li>Hintergrundgeräusch und verzerrter Mikroeingang (Hall + dumpf) als Basis<br/>
+            ? muss getestet werden
+        </li>
+        <li>mit zunehmender Geschwindigkeit baut sich mehrstimmige Melodie auf und Basis wird leiser:<br/>
+            letzte 5 Sekunden nehmen, Durchschnitt bilden, wieder bei 0 beginnen danach:<br/>
+            4 Stufen (nichts, Beat, 1. Stimme, 2. + 3. Stimme, 4. Stimme):
+            <ul>
+                <li>bei „0“ (keine Bewegung): nur Hintergrundgeräusch</li>
+                <li>bei „10“ (gehen): Beat</li>
+                <li>bei „20“ (langsames Laufen): 1. Stimme</li>
+                <li>bei „30“ (sprinten): 2., 3. und 4. Stimme setzen nacheinander in 10 Sekunden Abständen ein, wenn
+                    diese Marke gehalten wird
+                </li>
+            </ul>
+            Übergänge mit Fade-In/Out (1-2 s)
+        </li>
+        <li>Entsprechend der Uhrzeit spielt die Melodie in einer bestimmten Tonart:
+            ? muss getestet werden
+        </li>
+        <li>Ab ca. 20% Akkustand wird Metrum langsamer und Melodie tiefer
+            Übergang mit Fade-In<br/>
+            Relativ drastische Klangveränderung ab dieser Marke
+        </li>
+    </ul>
+</ul>
+
+<h2>Nächste Aufgaben</h2>
+<ul>
+    <li>Protokoll hochladen &rarr; Eva + Chris</li>
+    <li>Mikrosignal verfremden (Hall, dumpfer gestalten) &rarr; Elli</li>
+    <li>Festlegungen umsetzen (Schnittstelle Sensorwerte/Veränderung der Audioausgabe) &rarr; alle (eilt noch nicht)</li>
+    <li>Festlegungen umsetzen (Schnittstelle Sensorwerte/Veränderung der Audioausgabe) &rarr; alle (eilt noch nicht)
+    </li>
+    <li>Herrn Brinkmann anfragen, ob wir seinen Patch nutzen dürfen (wenn wir uns für das Hintergrundgeräusch endgültig entscheiden)</li>
+</ul>
+
+<h2>Sonstiges</h2>
+<ul>
+    <li>Weiterhin nur noch Dreierteam (Elli, Chris, Eva)</li>
+    <li>Reguläres Treffen ab sofort immer Dienstag nach der Vorlesung</li>
+</ul>
+
+</body>
+</html>
